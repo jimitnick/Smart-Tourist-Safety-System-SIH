@@ -22,8 +22,10 @@ import { Input } from "@/components/ui/input"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Progress } from "@/components/ui/progress"
+import { useRouter } from "next/navigation"
 
 export default function AuthorityDashboard() {
+  const router = useRouter();
   const [selectedTimeRange, setSelectedTimeRange] = useState("24h")
   const [activeIncidents, setActiveIncidents] = useState(3)
 
@@ -93,6 +95,7 @@ export default function AuthorityDashboard() {
               </div>
             </div>
             <div className="flex items-center gap-4">
+              <Button onClick={() => {router.push("/authority/ai-monitoring")}}>AI Monitoring</Button>
               <Button variant="outline" size="sm">
                 <Bell className="h-4 w-4 mr-2" />
                 Alerts (3)

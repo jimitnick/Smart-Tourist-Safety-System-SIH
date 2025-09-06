@@ -1,8 +1,11 @@
+"use client"
 import { Shield, MapPin, Users, AlertTriangle, Phone, Globe } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
+import { useRouter } from "next/navigation";
 
 export default function HomePage() {
+  const router = useRouter();
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
@@ -167,7 +170,9 @@ export default function HomePage() {
             <Button size="lg" className="bg-primary hover:bg-primary/90">
               Download Mobile App
             </Button>
-            <Button size="lg" variant="outline">
+            <Button size="lg" variant="outline" onClick={() => {
+              router.replace("/authority/login");
+            }}>
               Authority Login
             </Button>
           </div>

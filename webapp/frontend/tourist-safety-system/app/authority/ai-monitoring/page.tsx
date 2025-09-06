@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge"
 import { Progress } from "@/components/ui/progress"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
+import { useRouter } from "next/navigation"
 
 interface AIAlert {
   id: string
@@ -32,6 +33,7 @@ export default function AIMonitoringPage() {
   const [alerts, setAlerts] = useState<AIAlert[]>([])
   const [loading, setLoading] = useState(true)
   const [selectedSeverity, setSelectedSeverity] = useState("all")
+  const router = useRouter();
 
   useEffect(() => {
     fetchAlerts()
@@ -91,6 +93,7 @@ export default function AIMonitoringPage() {
               </div>
             </div>
             <div className="flex items-center gap-4">
+              <Button onClick={() => {router.push("/authority")}}>Go to Authority Dashboard</Button>
               <div className="text-right text-sm">
                 <div className="font-medium">System Status: Active</div>
                 <div className="text-muted-foreground">Last updated: Just now</div>
