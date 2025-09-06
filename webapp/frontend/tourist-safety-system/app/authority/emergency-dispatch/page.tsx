@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select"
 import { Textarea } from "@/components/ui/textarea"
+import { useRouter } from "next/navigation"
 
 interface EmergencyAlert {
   id: string
@@ -37,7 +38,7 @@ export default function EmergencyDispatchPage() {
   const [activeEmergencies, setActiveEmergencies] = useState<EmergencyAlert[]>([])
   const [selectedEmergency, setSelectedEmergency] = useState<string | null>(null)
   const [dispatchNotes, setDispatchNotes] = useState("")
-
+  const router = useRouter();
   useEffect(() => {
     // Mock active emergencies
     setActiveEmergencies([
@@ -151,6 +152,7 @@ export default function EmergencyDispatchPage() {
               </div>
             </div>
             <div className="flex items-center gap-4">
+              <Button onClick={() => {router.push("/authority")}}>Go to Authority Dashboard</Button>
               <div className="text-right text-sm">
                 <div className="font-medium text-destructive">EMERGENCY MODE ACTIVE</div>
                 <div className="text-muted-foreground">All units on standby</div>

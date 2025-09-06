@@ -96,6 +96,7 @@ export default function AuthorityDashboard() {
             </div>
             <div className="flex items-center gap-4">
               <Button onClick={() => {router.push("/authority/ai-monitoring")}}>AI Monitoring</Button>
+              <Button onClick={() => {router.push("/authority/emergency-dispatch")}}>Emergency Dispatch</Button>
               <Button variant="outline" size="sm">
                 <Bell className="h-4 w-4 mr-2" />
                 Alerts (3)
@@ -109,6 +110,7 @@ export default function AuthorityDashboard() {
                 <br />
                 Department: Tourism Police
               </div>
+              <Button variant="outline" size="sm" onClick={() => router.push("/")}>Logout</Button>
             </div>
           </div>
         </div>
